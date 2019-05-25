@@ -5,11 +5,13 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@narendras/components": "file:..",
+    "normalize.css": "^8.0.1",
     "prop-types": "^15.6.2",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
+    "react": "file:../node_modules/react",
+    "react-dom": "file:../node_modules/react-dom",
     "react-scripts": "^1.1.4",
-    "@narendras/components": "file:.."
+    "styled-components": "^4.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

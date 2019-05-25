@@ -1,0 +1,92 @@
+.input {
+  display: block;
+  width: 100%;
+  border: 0;
+  &:focus {
+    outline: none;
+  }
+  ::placeholder {
+    color: var(--med-gray);
+  }
+  :first-child {
+    margin-right: 1em;
+  }
+  :last-child {
+    margin-left: 1em;
+  }
+  :only-child {
+    margin: 0;
+  }
+}
+
+.input__container {
+  display: flex;
+  align-items: center;
+  padding: 0.8em 1.2em;
+  border: 1px solid var(--med-gray);
+  transition: 0.2s border ease-out;
+  cursor: text;
+  flex: 3;
+
+  &:hover,
+  &:focus-within {
+    border: 1px solid var(--blue);
+    border-radius: inherit;
+    outline: none;
+  }
+
+  &:first-child {
+    border-radius: 0.5rem 0 0 0.5rem;
+  }
+
+  &:last-child {
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+
+  &:only-child {
+    border-radius: 0.5rem;
+    width: 100%;
+  }
+}
+
+.input__icon {
+  color: var(--med-gray);
+}
+
+.input__prefix {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0.8em;
+  padding-right: 0.8em;
+  background: var(--light-gray);
+  border: 1px solid var(--med-gray);
+
+  &:first-child {
+    border-radius: 0.5rem 0 0 0.5rem;
+    border-right: none;
+  }
+
+  &:last-child {
+    border-radius: 0 0.5rem 0.5rem 0;
+    border-left: none;
+  }
+
+  &:hover {
+    border: 1px solid var(--med-gray);
+    &:first-child {
+      border-radius: 0.5rem 0 0 0.5rem;
+      border-right: none;
+    }
+
+    &:last-child {
+      border-radius: 0 0.5rem 0.5rem 0;
+      border-left: none;
+    }
+  }
+}
+
+.input__wrapper {
+  display: flex;
+}

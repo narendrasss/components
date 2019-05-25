@@ -1,0 +1,66 @@
+.select__input {
+  cursor: pointer;
+  text-transform: capitalize;
+
+  ::placeholder {
+    text-transform: capitalize;
+  }
+}
+
+.select__button {
+  width: 100%;
+  padding: 0.8em 1.2em;
+  border: 1px solid var(--med-gray);
+  border-radius: 0.5rem;
+  transition: 0.2s border ease-out;
+  cursor: pointer;
+  color: var(--black);
+  text-align: left;
+  text-transform: capitalize;
+
+  &:hover,
+  &:focus {
+    border: 1px solid var(--blue);
+    border-radius: 0.5rem;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.select__dropdown {
+  margin-top: 0.5em;
+  border-radius: 0.5rem;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.select__option {
+  width: 100%;
+  padding: 0.8em 1.2em;
+  border: none;
+  background: white;
+  cursor: pointer;
+  color: var(--black);
+  font-weight: 400;
+  text-align: left;
+
+  &:first-child {
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    background: var(--light-blue);
+  }
+}
+
+.select__option--selected {
+  font-weight: 500;
+}

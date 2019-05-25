@@ -1,22 +1,7 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import './index.css'
 
-import styles from './styles.css'
-
-export default class ExampleComponent extends Component {
-  static propTypes = {
-    text: PropTypes.string
-  }
-
-  render() {
-    const {
-      text
-    } = this.props
-
-    return (
-      <div className={styles.test}>
-        Example Component: {text}
-      </div>
-    )
-  }
-}
+export { default as Input } from './Input'
+export { default as InputNumber } from './InputNumber'
+export { default as Radio } from './Radio'
+export { default as Form } from './Form'
+export { default as Select } from './Select'

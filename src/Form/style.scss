@@ -1,0 +1,36 @@
+.form {
+  > * {
+    margin-bottom: 1em;
+  }
+}
+
+.form__field {
+  display: flex;
+  flex: 1;
+}
+
+.form__field--vertical {
+  flex-direction: column;
+  > *:first-child {
+    margin-bottom: 1em;
+  }
+}
+
+.form__field--horizontal {
+  flex-direction: row;
+  align-items: center;
+  justify-content: stretch;
+  > * {
+    &:first-child {
+      margin-right: 1em;
+      flex: 1;
+    }
+    &:nth-child(2) {
+      flex: 3;
+    }
+  }
+}
+
+.form__field__label {
+  text-transform: capitalize;
+}
