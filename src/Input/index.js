@@ -12,10 +12,12 @@ function Input(props) {
 
   const attachRef = el => {
     inputEl.current = el
-    if (typeof inputRef === 'function') {
-      inputRef(el)
-    } else {
-      inputRef.current = el
+    if (inputRef) {
+      if (typeof inputRef === 'function') {
+        inputRef(el)
+      } else {
+        inputRef.current = el
+      }
     }
   }
 
