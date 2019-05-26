@@ -4,10 +4,10 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var React = require('react');
-var React__default = _interopDefault(React);
 var PropTypes = require('prop-types');
 var PropTypes__default = _interopDefault(PropTypes);
+var React = require('react');
+var React__default = _interopDefault(React);
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -38,6 +38,8 @@ function styleInject(css, ref) {
 
 var css = ":root {\n  --white: #ffffff;\n  --black: #333333;\n  --vlight-gray: #f2f2f2;\n  --light-gray: #f7f7f7;\n  --med-gray: #e8e8e8;\n  --dark-gray: #888888;\n  --blue: #6152f6;\n  --light-blue: #f4f0ff;\n}\n";
 styleInject(css);
+
+var refPropType = PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.shape({ current: PropTypes__default.element })]);
 
 function toVal(mix) {
 	var k, y, str='';
@@ -153,7 +155,18 @@ function Input(props) {
       after = props.after,
       prefix = props.prefix,
       suffix = props.suffix,
-      inputProps = objectWithoutProperties(props, ['className', 'before', 'after', 'prefix', 'suffix']);
+      inputRef = props.inputRef,
+      inputProps = objectWithoutProperties(props, ['className', 'before', 'after', 'prefix', 'suffix', 'inputRef']);
+
+
+  var attachRef = function attachRef(el) {
+    inputEl.current = el;
+    if (typeof inputRef === 'function') {
+      inputRef(el);
+    } else {
+      inputRef.current = el;
+    }
+  };
 
   return React__default.createElement(
     'div',
@@ -173,7 +186,7 @@ function Input(props) {
         { className: 'input__icon' },
         prefix
       ),
-      React__default.createElement('input', _extends({ className: 'input' }, inputProps, { ref: inputEl })),
+      React__default.createElement('input', _extends({ className: 'input' }, inputProps, { ref: attachRef })),
       suffix && React__default.createElement(
         'span',
         { className: 'input__icon' },
@@ -193,7 +206,8 @@ Input.propTypes = {
   before: PropTypes.node,
   after: PropTypes.node,
   prefix: PropTypes.node,
-  suffix: PropTypes.node
+  suffix: PropTypes.node,
+  inputRef: refPropType
 };
 
 // TODO: Add suppport for uncontrolled component
